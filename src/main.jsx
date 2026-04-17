@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import { Provider, useSelector } from "react-redux";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./firebase/firebase";
-import { loadCloudData, loadCloudProfile, loadLocalData } from "./firebase/userData";
+import { loadCloudData, loadCloudProfile, loadLocalData, saveCloudProfile } from "./firebase/userData";
 import { createAppStore } from "./store";
 import { selectDarkMode } from "./store/uiSlice";
 import App from "./App";
@@ -57,7 +57,12 @@ function Root() {
       ]);
 
       const appData = cloudData ?? loadLocalData(user.uid) ?? undefined;
-      const profile = cloudProfile ?? { displayName: user.displayName ?? user.email, color: "#7c3aed" };
+      let profile = cloudProfile;
+      if (!profile) {
+        // First login (Google or email) — auto-create profile
+        profile = { displayName: user.displayName ?? user.email, color: "#7c3aed" };
+        await saveCloudProfile(user.uid, profile);
+      }
 
       setSession({ uid: user.uid, appData, profile });
     });
