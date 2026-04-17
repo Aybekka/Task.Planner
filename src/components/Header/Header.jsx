@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { selectTaskCounts } from "../../store/tasksSlice";
-import { clearCompleted } from "../../store/tasksSlice";
+import { selectTaskCounts, clearCompleted } from "../../store/tasksSlice";
 import {
   selectStatusFilter, setStatusFilter, StatusFilter,
   selectPriorityFilter, setPriorityFilter, PriorityFilter,
@@ -10,11 +9,15 @@ import { useT } from "../../i18n/useT";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import styles from "./Header.module.css";
 
-export default function Header() {
+function initials(name) {
+  return name.trim().split(/\s+/).map((w) => w[0]).join("").toUpperCase().slice(0, 2);
+}
+
+export default function Header({ onSignOut, userProfile }) {
   const dispatch = useDispatch();
   const t = useT();
   const { completed, active } = useSelector(selectTaskCounts);
-  const currentStatus = useSelector(selectStatusFilter);
+  const currentStatus   = useSelector(selectStatusFilter);
   const currentPriority = useSelector(selectPriorityFilter);
 
   const STATUS_FILTERS = [
@@ -35,6 +38,18 @@ export default function Header() {
       <div className={styles.titleRow}>
         <h1 className={styles.title}>{t.header.title}</h1>
         <div className={styles.titleActions}>
+          {userProfile && (
+            <button
+              className={styles.profileBtn}
+              onClick={onSignOut}
+              title="Sign out"
+            >
+              <span className={styles.profileAvatar} style={{ backgroundColor: userProfile.color }}>
+                {initials(userProfile.displayName ?? "?")}
+              </span>
+              <span className={styles.profileName}>{userProfile.displayName}</span>
+            </button>
+          )}
           <button
             className={styles.langBtn}
             onClick={() => dispatch(toggleLanguage())}
@@ -45,6 +60,7 @@ export default function Header() {
           <DarkModeToggle />
         </div>
       </div>
+
       <div className={styles.controls}>
         <div className={styles.left}>
           <div className={styles.counts}>
@@ -83,7 +99,6 @@ export default function Header() {
             <button
               className={styles.clearBtn}
               onClick={() => dispatch(clearCompleted())}
-              title={t.header.clearDone}
             >
               {t.header.clearDone}
             </button>

@@ -7,7 +7,7 @@ import TaskForm from "./components/TaskForm/TaskForm";
 import TaskList from "./components/TaskList/TaskList";
 import styles from "./App.module.css";
 
-export default function App() {
+export default function App({ onSignOut, userProfile }) {
   const dispatch = useDispatch();
 
   const sensors = useSensors(
@@ -23,7 +23,7 @@ export default function App() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.card}>
-        <Header />
+        <Header onSignOut={onSignOut} userProfile={userProfile} />
         <SearchBar />
         <TaskForm />
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>

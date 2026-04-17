@@ -1,14 +1,18 @@
-const STORAGE_KEY = "taskPlanner_v1";
+import { getActiveProfileId, dataKey } from "../profiles/profileStorage";
+
+const LEGACY_KEY = "taskPlanner_v1";
+
+function getStorageKey() {
+  const id = getActiveProfileId();
+  return id ? dataKey(id) : LEGACY_KEY;
+}
 
 export const loadState = () => {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(getStorageKey());
     if (!raw) return undefined;
     const parsed = JSON.parse(raw);
-    // Ensure ephemeral fields that are never persisted have safe defaults
-    if (parsed.ui) {
-      parsed.ui.expandedNotes = {};
-    }
+    if (parsed.ui) parsed.ui.expandedNotes = {};
     return parsed;
   } catch {
     return undefined;
@@ -20,7 +24,7 @@ export const localStorageMiddleware = (store) => (next) => (action) => {
   const { tasks, filters, ui } = store.getState();
   try {
     localStorage.setItem(
-      STORAGE_KEY,
+      getStorageKey(),
       JSON.stringify({
         tasks,
         filters,
