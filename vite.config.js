@@ -7,8 +7,14 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          // Firebase into its own cached chunk — largest single dependency
-          if (id.includes("node_modules/firebase")) return "firebase";
+          // Firebase — split by sub-package so auth and firestore load in parallel
+          // and each is independently cacheable after updates
+          if (id.includes("node_modules/@firebase/auth")) return "firebase-auth";
+          if (id.includes("node_modules/@firebase/firestore")) return "firebase-firestore";
+          if (
+            id.includes("node_modules/firebase") ||
+            id.includes("node_modules/@firebase")
+          ) return "firebase-core";
           // React core
           if (
             id.includes("node_modules/react/") ||

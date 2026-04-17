@@ -137,6 +137,7 @@
   transition: border-color 0.12s ease, box-shadow 0.12s ease;
   width: 100%;
   box-sizing: border-box;
+  will-change: box-shadow;
 }
 
 .input:focus {
