@@ -1,0 +1,23 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-app-bg);
+  color: var(--color-text-primary);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Futuristic monospace style for UI labels and metadata */
+code, kbd, .mono {
+  font-family: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+}
+
+@media (max-width: 500px) {
+  input[type="date"] { width: 100%; }
+}

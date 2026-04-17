@@ -1,0 +1,26 @@
+const STORAGE_KEY = "taskPlanner_v1";
+
+export const loadState = () => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : undefined;
+  } catch {
+    return undefined;
+  }
+};
+
+export const localStorageMiddleware = (store) => (next) => (action) => {
+  const result = next(action);
+  const { tasks, filters, ui } = store.getState();
+  try {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        tasks,
+        filters,
+        ui: { darkMode: ui.darkMode, language: ui.language },
+      })
+    );
+  } catch {}
+  return result;
+};

@@ -1,0 +1,15 @@
+.badge {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  border: 1px solid currentColor;
+}
+
+.low    { color: var(--color-priority-low);    background-color: var(--color-priority-low-bg); }
+.medium { color: var(--color-priority-medium); background-color: var(--color-priority-medium-bg); }
+.high   { color: var(--color-priority-high);   background-color: var(--color-priority-high-bg); }

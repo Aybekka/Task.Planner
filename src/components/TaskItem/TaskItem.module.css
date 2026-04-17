@@ -1,0 +1,150 @@
+.wrapper {
+  border-bottom: 1px solid var(--color-border-light);
+  transition: background-color var(--transition);
+}
+
+.wrapper:last-child { border-bottom: none; }
+
+.wrapper:hover { background-color: var(--color-surface-hover); }
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 24px;
+}
+
+.dragHandle {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  cursor: grab;
+  font-size: 15px;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+  user-select: none;
+  opacity: 0.5;
+  transition: opacity var(--transition), color var(--transition);
+}
+
+.wrapper:hover .dragHandle { opacity: 1; }
+
+.dragHandle:hover { color: var(--color-accent); }
+.dragHandle:active { cursor: grabbing; }
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.text {
+  flex: 1;
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
+  word-break: break-word;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.completed .text {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.editInput {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  outline: none;
+  box-shadow: var(--glow-accent);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.dueDate {
+  font-size: 11px;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.dueDate.overdue {
+  color: var(--color-overdue);
+  font-weight: 700;
+}
+
+.dueDate.critical {
+  color: var(--color-priority-medium);
+  font-weight: 700;
+}
+
+.notesToggle {
+  flex-shrink: 0;
+  padding: 3px 8px;
+  height: 26px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.notesToggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background-color: var(--color-accent-light);
+}
+
+.notesToggle.active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background-color: var(--color-accent-light);
+  box-shadow: var(--glow-accent);
+}
+
+.deleteBtn {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  color: var(--color-text-muted);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteBtn:hover {
+  border-color: var(--color-danger);
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+.dragging { opacity: 0.4; }

@@ -1,0 +1,90 @@
+.wrapper {
+  padding: 8px 24px 12px 52px;
+  border-top: 1px solid var(--color-border-light);
+  background-color: var(--color-surface);
+  /* Left accent stripe */
+  border-left: 2px solid rgba(168, 85, 247, 0.25);
+}
+
+.subtask {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.checkbox {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.text {
+  flex: 1;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
+}
+
+.completed .text {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color var(--transition);
+}
+
+.deleteBtn:hover { color: var(--color-danger); }
+
+.addForm {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.addInput {
+  flex: 1;
+  padding: 5px 10px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.addInput:focus {
+  border-color: var(--color-accent);
+  box-shadow: var(--glow-accent);
+}
+
+.addInput::placeholder { color: var(--color-text-muted); }
+
+.addBtn {
+  padding: 5px 12px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color var(--transition), box-shadow var(--transition);
+}
+
+.addBtn:hover {
+  background-color: var(--color-accent-dark);
+  box-shadow: var(--glow-accent);
+}

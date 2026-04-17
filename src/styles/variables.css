@@ -1,0 +1,100 @@
+/* ─── Light theme ─────────────────────────────────────────────────────────── */
+:root {
+  --color-bg:            #fafafd;
+  --color-surface:       #f2f2f9;
+  --color-surface-hover: #eaeaf5;
+  --color-card:          #ffffff;
+  --color-border:        #d0d0e8;
+  --color-border-light:  #e4e4f4;
+
+  --color-text-primary:   #0d0d1a;
+  --color-text-secondary: #55557a;
+  --color-text-muted:     #9898b8;
+
+  --color-accent:       #7c3aed;
+  --color-accent-dark:  #6d28d9;
+  --color-accent-light: #ede9fe;
+
+  --color-danger:    #e11d48;
+  --color-danger-bg: #ffe4e6;
+
+  --color-priority-low:        #059669;
+  --color-priority-low-bg:     #d1fae5;
+  --color-priority-medium:     #d97706;
+  --color-priority-medium-bg:  #fef3c7;
+  --color-priority-high:       #e11d48;
+  --color-priority-high-bg:    #ffe4e6;
+
+  --color-overdue:    #e11d48;
+  --color-overdue-bg: #ffe4e6;
+
+  /* Header stays dark in both themes for that control-panel feel */
+  --color-app-bg:      #eeeef8;
+  --color-header-bg:   #0d0d1a;
+  --color-header-text: #d4d4ff;
+
+  /* Grid lines visible in the app wrapper */
+  --color-grid: rgba(124, 58, 237, 0.06);
+
+  --shadow-card: 0 0 0 1px rgba(124, 58, 237, 0.12),
+                 0 4px 24px rgba(124, 58, 237, 0.06);
+  --shadow-sm:   0 1px 4px rgba(13, 13, 26, 0.08);
+
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-full: 9999px;
+
+  --transition: 0.12s ease;
+
+  /* Neon glow accent used on focus/active states */
+  --glow-accent: 0 0 8px rgba(124, 58, 237, 0.5);
+}
+
+/* ─── Dark theme ──────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --color-bg:            #07070f;
+  --color-surface:       #0e0e1c;
+  --color-surface-hover: #161628;
+  --color-card:          #0b0b18;
+  --color-border:        #252540;
+  --color-border-light:  #18182e;
+
+  --color-text-primary:   #e4e4ff;
+  --color-text-secondary: #7878a8;
+  --color-text-muted:     #48486a;
+
+  --color-accent:       #a855f7;
+  --color-accent-dark:  #9333ea;
+  --color-accent-light: #1a0d38;
+
+  --color-danger:    #fb4176;
+  --color-danger-bg: #280818;
+
+  --color-priority-low:        #34d399;
+  --color-priority-low-bg:     #042e1c;
+  --color-priority-medium:     #fbbf24;
+  --color-priority-medium-bg:  #221800;
+  --color-priority-high:       #fb4176;
+  --color-priority-high-bg:    #280818;
+
+  --color-overdue:    #fb4176;
+  --color-overdue-bg: #280818;
+
+  --color-app-bg:      #030309;
+  --color-header-bg:   #070710;
+  --color-header-text: #d4d4ff;
+
+  --color-grid: rgba(168, 85, 247, 0.07);
+
+  --shadow-card: 0 0 0 1px rgba(168, 85, 247, 0.25),
+                 0 4px 40px rgba(168, 85, 247, 0.18),
+                 0 0 80px rgba(168, 85, 247, 0.06);
+  --shadow-sm:   0 1px 6px rgba(0, 0, 0, 0.5);
+
+  --glow-accent: 0 0 12px rgba(168, 85, 247, 0.7);
+}
+
+/* Date picker uses browser-native dark scheme in dark mode */
+[data-theme="dark"] input[type="date"] {
+  color-scheme: dark;
+}

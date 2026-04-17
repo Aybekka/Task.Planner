@@ -1,0 +1,179 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 18px 24px 16px;
+  background-color: var(--color-header-bg);
+  color: var(--color-header-text);
+  border-bottom: 1px solid var(--color-accent);
+  box-shadow: 0 1px 20px rgba(168, 85, 247, 0.15);
+  position: relative;
+}
+
+/* Top edge glow strip */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%);
+  opacity: 0.6;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+  margin-bottom: 14px;
+}
+
+.titleActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-header-text);
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+/* Controls row: filters + clear button */
+.controls {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.left {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.counts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Fixed width so badge never changes size when number or label changes */
+.countBadge {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  background-color: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--color-header-text);
+  min-width: 130px;
+  white-space: nowrap;
+}
+
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filterLabel {
+  font-size: 9px;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(212, 212, 255, 0.4);
+}
+
+.filterRow {
+  display: flex;
+  gap: 4px;
+}
+
+/* Fixed min-width so buttons don't resize when labels change language */
+.filterBtn {
+  padding: 4px 0;
+  min-width: 68px;
+  text-align: center;
+  border: 1px solid rgba(212, 212, 255, 0.2);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: rgba(212, 212, 255, 0.6);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.filterBtn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-header-text);
+  background-color: rgba(168, 85, 247, 0.1);
+}
+
+.filterBtn.active {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: var(--glow-accent);
+}
+
+/* Fixed width so the button doesn't shift the right section when it appears */
+.clearBtn {
+  min-width: 148px;
+  text-align: center;
+  padding: 4px 12px;
+  border: 1px solid rgba(251, 65, 118, 0.4);
+  border-radius: var(--radius-sm);
+  background: rgba(251, 65, 118, 0.08);
+  color: rgba(251, 65, 118, 0.8);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.clearBtn:hover {
+  background-color: rgba(251, 65, 118, 0.2);
+  border-color: #fb4176;
+  color: #fb4176;
+  box-shadow: 0 0 8px rgba(251, 65, 118, 0.4);
+}
+
+.langBtn {
+  padding: 4px 0;
+  min-width: 44px;
+  text-align: center;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: var(--radius-sm);
+  background: rgba(168, 85, 247, 0.08);
+  color: rgba(212, 212, 255, 0.8);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.langBtn:hover {
+  background-color: rgba(168, 85, 247, 0.2);
+  border-color: var(--color-accent);
+  color: #fff;
+  box-shadow: var(--glow-accent);
+}

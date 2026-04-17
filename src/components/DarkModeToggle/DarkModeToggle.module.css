@@ -1,0 +1,20 @@
+.btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(212, 212, 255, 0.25);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  border-color: var(--color-accent);
+  background-color: rgba(168, 85, 247, 0.12);
+  box-shadow: var(--glow-accent);
+}
