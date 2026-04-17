@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { useT } from "../../i18n/useT";
 import TextNote from "./TextNote/TextNote";
-import DrawingCanvas from "./DrawingCanvas/DrawingCanvas";
 import styles from "./NotesPanel.module.css";
+
+const DrawingCanvas = lazy(() => import("./DrawingCanvas/DrawingCanvas"));
 
 export default function NotesPanel({ taskId, notes, isOpen }) {
   const [activeTab, setActiveTab] = useState("text");
@@ -30,7 +31,9 @@ export default function NotesPanel({ taskId, notes, isOpen }) {
         {activeTab === "text" ? (
           <TextNote taskId={taskId} text={notes.text} />
         ) : (
-          <DrawingCanvas taskId={taskId} strokes={notes.strokes} />
+          <Suspense fallback={<div className={styles.canvasLoader}>Loading…</div>}>
+            <DrawingCanvas taskId={taskId} strokes={notes.strokes} />
+          </Suspense>
         )}
       </div>
     </div>
