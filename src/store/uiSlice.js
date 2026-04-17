@@ -26,6 +26,6 @@ export const { toggleDarkMode, toggleLanguage, toggleNotesPanel } = uiSlice.acti
 export const selectDarkMode = (state) => state.ui.darkMode;
 export const selectLanguage = (state) => state.ui.language ?? "en";
 export const selectNotesExpanded = (taskId) => (state) =>
-  !!state.ui.expandedNotes[taskId];
+  !!state.ui.expandedNotes?.[taskId];
 
 export default uiSlice.reducer;
