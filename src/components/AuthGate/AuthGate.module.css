@@ -280,3 +280,9 @@
 }
 
 .switchBtn:hover { color: #c084fc; }
+
+@media (max-width: 600px) {
+  .screen { padding: 32px 16px; gap: 28px; }
+  .title { font-size: 22px; }
+  .card { padding: 24px 18px; }
+}

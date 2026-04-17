@@ -88,3 +88,7 @@
   background-color: var(--color-accent-dark);
   box-shadow: var(--glow-accent);
 }
+
+@media (max-width: 600px) {
+  .wrapper { padding: 6px 12px 10px 36px; }
+}

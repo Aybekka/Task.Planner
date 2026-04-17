@@ -74,3 +74,14 @@
   background-color: var(--color-accent-dark);
   box-shadow: var(--glow-accent);
 }
+
+@media (max-width: 600px) {
+  .form { padding: 10px 14px; gap: 6px; }
+
+  .input { font-size: 13px; }
+
+  .select,
+  .dateInput { flex: 1; min-width: 0; font-size: 12px; }
+
+  .addBtn { width: 100%; }
+}

@@ -214,3 +214,36 @@
   color: #fff;
   box-shadow: var(--glow-accent);
 }
+
+@media (max-width: 600px) {
+  .header { padding: 14px 14px 12px; }
+
+  .titleRow { padding-bottom: 10px; margin-bottom: 10px; }
+
+  .title { font-size: 16px; letter-spacing: 0.08em; }
+
+  .profileName { display: none; }
+
+  .controls { gap: 8px; }
+
+  .left { gap: 8px; }
+
+  .counts { flex-direction: column; gap: 4px; }
+
+  .countBadge { font-size: 10px; padding: 2px 6px; }
+
+  .filterGroup { gap: 3px; }
+
+  .filterLabel { font-size: 8px; }
+
+  .filterBtn {
+    min-width: 44px;
+    font-size: 10px;
+    padding: 3px 0;
+  }
+
+  .clearBtn {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}

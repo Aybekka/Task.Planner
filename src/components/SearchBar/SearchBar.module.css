@@ -42,3 +42,7 @@
 }
 
 .clearBtn:hover { color: var(--color-accent); }
+
+@media (max-width: 600px) {
+  .wrapper { padding: 8px 14px; }
+}
